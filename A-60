@@ -11,19 +11,4 @@ plush.Unequipped:Connect(function()
 end)
 plush.Activated:Connect(function()
     plush.Toy:Play()
--- Âm thanh báo hiệu
-local cue1 = Instance.new("Sound")
-cue1.Parent = game.Workspace
-cue1.Name = "Scream"
-cue1.SoundId = "rbxassetid://8028069841"
- 
-local pitch = Instance.new("PitchShiftSoundEffect", cue1)
-pitch.Octave = 0.1
-local pitch2 = Instance.new("PitchShiftSoundEffect", cue1)
-pitch2.Octave = 0.1
-local pitch3 = Instance.new("PitchShiftSoundEffect", cue1)
-pitch3.Octave = 0.1
- 
-cue1.Volume = 2
-cue1:Play()
 end)
