@@ -1,17 +1,14 @@
-local plr = game.Players.LocalPlayer
-local hum = plr.Character:WaitForChild("Humanoid")
-
+local player = game.Players.LocalPlayer
+local humanoid = player.Character:WaitForChild("Humanoid")
 local plush = game:GetObjects("rbxassetid://13620538358")[1]
-plush.Parent = plr.Backpack
-local anim = hum:LoadAnimation(plush.A.Hold)
-
+plush.Parent = player.Backpack
+local animation = humanoid:LoadAnimation(plush.A.Hold)
 plush.Equipped:Connect(function()
-  anim:Play()
+    animation:Play()
 end)
 plush.Unequipped:Connect(function()
-  anim:Stop()
+    animation:Stop()
 end)
-
 plush.Activated:Connect(function()
-  plush.Toy:Play()
+    plush.Toy:Play()
 end)
