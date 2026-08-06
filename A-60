@@ -17,11 +17,6 @@ cue1.Parent = game.Workspace
 cue1.Name = "Scream"
 cue1.SoundId = "rbxassetid://8028069841"
  
-local distort = Instance.new("DistortionSoundEffect", cue1)
-distort.Level = 1
-local distort2 = Instance.new("DistortionSoundEffect", cue1)
-distort2.Level = 1
- 
 local pitch = Instance.new("PitchShiftSoundEffect", cue1)
 pitch.Octave = 0.1
 local pitch2 = Instance.new("PitchShiftSoundEffect", cue1)
