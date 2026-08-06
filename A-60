@@ -23,11 +23,11 @@ local distort2 = Instance.new("DistortionSoundEffect", cue1)
 distort2.Level = 1
  
 local pitch = Instance.new("PitchShiftSoundEffect", cue1)
-pitch.Octave = 0.5
+pitch.Octave = 0.1
 local pitch2 = Instance.new("PitchShiftSoundEffect", cue1)
-pitch2.Octave = 0.5
+pitch2.Octave = 0.1
 local pitch3 = Instance.new("PitchShiftSoundEffect", cue1)
-pitch3.Octave = 0.5
+pitch3.Octave = 0.1
  
 cue1.Volume = 2
 cue1:Play()
