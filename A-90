@@ -1,6 +1,6 @@
 local player = game.Players.LocalPlayer
 local humanoid = player.Character:WaitForChild("Humanoid")
-local plush = game:GetObjects("rbxassetid://17161557883")[1]
+local plush = game:GetObjects("rbxassetid://134924028348069")[1]
 plush.Parent = player.Backpack
 local animation = humanoid:LoadAnimation(plush.A.Hold)
 plush.Equipped:Connect(function()
@@ -11,24 +11,55 @@ plush.Unequipped:Connect(function()
 end)
 plush.Activated:Connect(function()
     plush.Toy:Play()
--- Âm thanh báo hiệu
-local cue1 = Instance.new("Sound")
-cue1.Parent = game.Workspace
-cue1.Name = "Scream"
-cue1.SoundId = "rbxassetid://9114397505"
- 
-local distort = Instance.new("DistortionSoundEffect", cue1)
-distort.Level = 1
-local distort2 = Instance.new("DistortionSoundEffect", cue1)
-distort2.Level = 1
- 
-local pitch = Instance.new("PitchShiftSoundEffect", cue1)
-pitch.Octave = 0.5
-local pitch2 = Instance.new("PitchShiftSoundEffect", cue1)
-pitch2.Octave = 0.5
-local pitch3 = Instance.new("PitchShiftSoundEffect", cue1)
-pitch3.Octave = 0.5
- 
-cue1.Volume = 2
-cue1:Play()
+wait(5)
+function DeathHint(args, Color) -- credits to Master Oogway in the kardin hong discord server
+local func, setupval, getinfo, typeof, getgc, next = nil, debug.setupvalue or setupvalue, debug.getinfo or getinfo, typeof, getgc, next
+
+for i,v in next, getgc(false) do
+    if typeof(v) == "function" then
+        local info = getinfo(v)
+        if info.currentline == 54 and info.nups == 2 and info.is_vararg == 0 then
+            func = v
+            break
+        end
+    end
+end
+
+local function Hint(hints, type: string)
+    setupval(func, 1, hints)
+    if type ~= nil then
+        setupval(func, 2, type)
+    end
+end
+
+Hint({
+unpack(args)
+}, Color)
+end
+spawn(function()
+require(game:GetService("Players").LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game.RemoteListener.Modules.A90)(require(game:GetService("Players").LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game))
+end)
+spawn(function()
+wait(2) -- dont know any other way
+Survived = true
+end)
+repeat task.wait() until game:GetService("Players").LocalPlayer.PlayerGui.MainUI.Jumpscare.Jumpscare_A90.FaceAngry.Visible == true or Survived
+if Survived then return end
+local ReSt = game:GetService("ReplicatedStorage") 
+ ReSt.GameStats["Player_".. game.Players.LocalPlayer.Name].Total.DeathCause.Value = "A-90"
+ pcall(function()
+  DeathHint({
+  "Oh... Hello.",
+  "I'm surprised you found this place...",
+  "It's pretty tedious just to get here, last time I checked",
+  "Anyways, what'd you die to?",
+  "Oh that one...",
+  "I hope that one isn't too confusing...",
+  "All I'll let you know is that it starts attacking after room A-90.",
+  "So, you could call it A-90.",
+  "Anyways, I hope you don't mind trying again. It would be helpful.",
+}, "Yellow")
+end)
+wait(1)
+game.Players.LocalPlayer.Character.Humanoid:TakeDamage(90)
 end)
