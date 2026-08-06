@@ -15,7 +15,7 @@ plush.Activated:Connect(function()
 local cue1 = Instance.new("Sound")
 cue1.Parent = game.Workspace
 cue1.Name = "Scream"
-cue1.SoundId = "rbxassetid://134020218579308"
+cue1.SoundId = "rbxassetid://13218762091"
  
 local distort = Instance.new("DistortionSoundEffect", cue1)
 distort.Level = 0
